@@ -1,11 +1,16 @@
 # OWASP Application Security Verification Standard
 ![LicenseBadge](https://img.shields.io/badge/license-C_C-blue.svg)
  </br>[![LICENSE](https://i.creativecommons.org/l/by-sa/3.0/88x31.png)](http://creativecommons.org/licenses/by-sa/3.0/) 
+
 ## Introduction
 
 The primary aim of the OWASP Application Security Verification Standard (ASVS) Project is to provide an open application security standard for web apps and web services of all types.
 
 The standard provides a basis for designing, building, and testing technical application security controls, including architectural concerns, secure development lifecycle, threat modelling, agile security including continuous integration / deployment, serverless, and configuration concerns.
+
+__This ASVS fork is intended to provide a translation of ASVS V.4.01 into German language.Please check translation progress in the provided PDF for the tranlated german ASVS version below.__
+
+__Reviews and/or PR's are welcome!!__
 
 ## Standard Objectives
 
