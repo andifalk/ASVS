@@ -33,6 +33,9 @@ The master branch of this repository will always be the "bleeding edge version" 
 
 ### Translations
 
+Translation into German:
+* [OWASP Application Security Verification Standard 4.0.1 German (PDF)](https://github.com/OWASP/ASVS/raw/master/4.0/OWASP%20Application%20Security%20Verification%20Standard%204.0-de.pdf)
+
 Translation into Persian:
 * [OWASP Application Security Verification Standard 4.0.1 Persian (PDF)](https://github.com/OWASP/ASVS/raw/master/4.0/OWASP%20Application%20Security%20Verification%20Standard%204.0-fa.pdf) (Thanks to [SajjadPourali](https://github.com/SajjadPourali))
 
