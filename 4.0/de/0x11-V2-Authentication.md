@@ -163,57 +163,60 @@ Einmalpasswörter mit einem Faktor (OTP) sind physische oder Soft Token, die ein
 
 | # | Description | L1 | L2 | L3 | CWE | [NIST &sect;](https://pages.nist.gov/800-63-3/sp800-63b.html) |
 | :---: | :--- | :---: | :---:| :---: | :---: | :---: |
-| **2.8.1** | Verify that time-based OTPs have a defined lifetime before expiring. | ✓ | ✓ | ✓ | 613 | 5.1.4.2 / 5.1.5.2 |
-| **2.8.2** | Verify that symmetric keys used to verify submitted OTPs are highly protected, such as by using a hardware security module or secure operating system based key storage. |  | ✓ | ✓ | 320 | 5.1.4.2 / 5.1.5.2|
-| **2.8.3** | Verify that approved cryptographic algorithms are used in the generation, seeding, and verification. |  | ✓ | ✓ | 326 | 5.1.4.2 / 5.1.5.2 |
-| **2.8.4** | Verify that time-based OTP can be used only once within the validity period. |  | ✓ | ✓ | 287 | 5.1.4.2 / 5.1.5.2 |
-| **2.8.5** | Verify that if a time-based multi factor OTP token is re-used during the validity period, it is logged and rejected with secure notifications being sent to the holder of the device. |  | ✓ | ✓ | 287 | 5.1.5.2 |
-| **2.8.6** | Verify physical single factor OTP generator can be revoked in case of theft or other loss. Ensure that revocation is immediately effective across logged in sessions, regardless of location. |  | ✓ | ✓ | 613 | 5.2.1 |
-| **2.8.7** | Verify that biometric authenticators are limited to use only as secondary factors in conjunction with either something you have and something you know. |  | o | ✓ | 308 | 5.2.3 |
+| **2.8.1** | Überprüfen Sie, ob zeitbasierte OTPs eine definierte Lebensdauer haben, bevor sie ablaufen. | ✓ | ✓ | ✓ | 613 | 5.1.4.2 / 5.1.5.2 |
+| **2.8.2** | Vergewissern Sie sich, dass die symmetrischen Schlüssel, die zur Überprüfung der eingereichten OTPs verwendet werden, mit einem hohen Schutzlevel folgen, z. B. durch die Verwendung eines Hardware-Sicherheitsmoduls oder einer sicheren betriebssystembasierten Schlüsselspeicherung. |  | ✓ | ✓ | 320 | 5.1.4.2 / 5.1.5.2|
+| **2.8.3** | Verifizieren Sie, dass anerkannte kryptografische Algorithmen bei der Generierung, dem Seeding und der Prüfung verwendet werden. |  | ✓ | ✓ | 326 | 5.1.4.2 / 5.1.5.2 |
+| **2.8.4** | Stellen Sie sicher, dass das zeitbasierte OTPs nur einmal innerhalb des Gültigkeitszeitraums verwendet werden können. |  | ✓ | ✓ | 287 | 5.1.4.2 / 5.1.5.2 |
+| **2.8.5** | Vergewissern Sie sich, dass ein zeitbasiertes Mehrfaktor-OTP-Token, das während der Gültigkeitsdauer wiederverwendet wird, protokolliert und abgelehnt wird, und Sicherheitsbenachrichtigungen an den Inhaber des Geräts gesendet werden. |  | ✓ | ✓ | 287 | 5.1.5.2 |
+| **2.8.6** | Vergewissern Sie sich, dass der physische Einfaktor-OTP-Generator im Falle eines Diebstahls oder anderweitigem Verlust widerrufen werden kann. Stellen Sie sicher, dass der Widerruf sofort für alle eingeloggten Sitzungen, unabhängig vom Standort, wirksam ist. |  | ✓ | ✓ | 613 | 5.2.1 |
+| **2.8.7** | Vergewissern Sie sich, dass biometrische Authentifikatoren nur als sekundäre Faktoren in Verbindung mit _etwas, das Sie haben_ und _etwas, das Sie kennen_, verwendet werden dürfen.
+ |  | o | ✓ | 308 | 5.2.3 |
 
-## V2.9 Cryptographic Software and Devices Verifier Requirements
+## V2.9 Anforderungen an Überprüfer für kryptografische Software und Geräte
 
-Cryptographic security keys are smart cards or FIDO keys, where the user has to plug in or pair the cryptographic device to the computer to complete authentication. Verifiers send a challenge nonce to the cryptographic devices or software, and the device or software calculates a response based upon a securely stored cryptographic key.
+Kryptographische Sicherheitsschlüssel sind Smartcards oder FIDO-Schlüssel, bei denen der Benutzer das kryptographische Gerät an den Computer anschließen oder mit ihm koppeln muss, um die Authentifizierung abzuschließen. Überprüfer senden eine _Challenge Nonce_ an die kryptographischen Geräte oder Software, und das Gerät oder die Software berechnet eine Antwort auf der Grundlage eines sicher gespeicherten kryptographischen Schlüssels.
 
-The requirements for single factor cryptographic devices and software, and multi-factor cryptographic devices and software are the same, as verification of the cryptographic authenticator proves possession of the authentication factor.
+Die Anforderungen für kryptographische Geräte und Software mit einem Faktor und für kryptographische Geräte und Software mit mehreren Faktoren sind dieselben, da die Prüfung des kryptographischen Authentifizierers den Besitz des Authentifizierungsfaktors nachweist.
 
-| # | Description | L1 | L2 | L3 | CWE | [NIST &sect;](https://pages.nist.gov/800-63-3/sp800-63b.html) |
+| # | Beschreibung | L1 | L2 | L3 | CWE | [NIST &sect;](https://pages.nist.gov/800-63-3/sp800-63b.html) |
 | :---: | :--- | :---: | :---:| :---: | :---: | :---: |
-| **2.9.1** | Verify that cryptographic keys used in verification are stored securely and protected against disclosure, such as using a TPM or HSM, or an OS service that can use this secure storage. |  | ✓ | ✓ | 320 | 5.1.7.2 |
-| **2.9.2** | Verify that the challenge nonce is at least 64 bits in length, and statistically unique or unique over the lifetime of the cryptographic device. |  | ✓ | ✓ | 330 | 5.1.7.2 |
-| **2.9.3** | Verify that approved cryptographic algorithms are used in the generation, seeding, and verification. | | ✓ | ✓ | 327 | 5.1.7.2 |
+| **2.9.1** | Vergewissern Sie sich, dass die bei der Prüfung verwendeten kryptografischen Schlüssel sicher gespeichert und gegen Offenlegung geschützt sind, z.B. durch Verwendung eines TPM, HSM oder eines Betriebssystemdienstes, der diesen sicheren Speicherplatz verwenden kann. |  | ✓ | ✓ | 320 | 5.1.7.2 |
+| **2.9.2** | Vergewissern Sie sich, dass die _Challenge Nonce_ mindestens 64 Bit lang ist und statistisch eindeutig oder über die Lebensdauer des kryptografischen Geräts eindeutig ist.
+ |  | ✓ | ✓ | 330 | 5.1.7.2 |
+| **2.9.3** | Vergewissern Sie sich, dass anerkannte kryptografische Algorithmen bei der Generierung, dem Seeding und der Prüfung verwendet werden. | | ✓ | ✓ | 327 | 5.1.7.2 |
 
-## V2.10 Service Authentication Requirements
+## V2.10 Anforderungen an die Authentifizierungsdienst
 
-This section is not penetration testable, so does not have any L1 requirements. However, if used in an architecture, coding or secure code review, please assume that software (just as Java Key Store) is the minimum requirement at L1. Clear text storage of secrets is not acceptable under any circumstances.
+Dieser Abschnitt ist nicht penetrationstestbar, hat also keine Anforderungen der Stufe 1. Wenn Sie jedoch in einer Architektur-, Codierungs- oder Sicherheitscodeprüfung verwendet werden, gehen Sie bitte davon aus, dass Software (beispielsweise der Java Key Store) die Mindestanforderung an die Stufe 1 ist. Die Speicherung von Geheimnissen im Klartext ist unter keinen Umständen akzeptabel.
 
-| # | Description | L1 | L2 | L3 | CWE | [NIST &sect;](https://pages.nist.gov/800-63-3/sp800-63b.html) |
+| # | Beschreibung | L1 | L2 | L3 | CWE | [NIST &sect;](https://pages.nist.gov/800-63-3/sp800-63b.html) |
 | :---: | :--- | :---: | :---:| :---: | :---: | :---: |
-| **2.10.1** | Verify that integration secrets do not rely on unchanging passwords, such as API keys or shared privileged accounts. |  | OS assisted | HSM | 287 | 5.1.1.1 |
-| **2.10.2** | Verify that if passwords are required, the credentials are not a default account. |  | OS assisted | HSM | 255 | 5.1.1.1 |
-| **2.10.3** | Verify that passwords are stored with sufficient protection to prevent offline recovery attacks, including local system access. |  | OS assisted | HSM | 522 | 5.1.1.1 |
-| **2.10.4** | Verify passwords, integrations with databases and third-party systems, seeds and internal secrets, and API keys are managed securely and not included in the source code or stored within source code repositories. Such storage SHOULD resist offline attacks. The use of a secure software key store (L1), hardware trusted platform module (TPM), or a hardware security module (L3) is recommended for password storage. |  | OS assisted | HSM | 798 | |
+| **2.10.1** | Stellen Sie sicher, dass die integrierte Sicherheitsdaten nicht auf unveränderlichen Passwörtern wie API-Schlüsseln oder gemeinsam genutzten privilegierten Konten beruhen. |  | Bertriebssystemunterstützt | HSM | 287 | 5.1.1.1 |
+| **2.10.2** | Vergewissern Sie sich, dass die Zugangsdaten keinem Standardkonto entsprechen, wenn Passwörter erforderlich sind. |  | Bertriebssystemunterstützt | HSM | 255 | 5.1.1.1 |
+| **2.10.3** | Stellen Sie sicher, dass die Passwörter mit ausreichendem Schutz gespeichert werden, um Offline-Wiederherstellungsangriffe, einschließlich des lokalen Systemzugriffs, zu verhindern. |  | Bertriebssystemunterstützt | HSM | 522 | 5.1.1.1 |
+| **2.10.4** | Vergewissern Sie sich, dass Passwörter, Integrationen mit Datenbanken und Systemen von Drittanbietern, Seeds und interne Geheimnisse sowie API-Schlüssel sicher verwaltet werden und nicht im Quellcode enthalten sind oder in Quellcode-Repositories gespeichert werden. Eine solche Speicherung SOLLTE Offline-Angriffen widerstehen. Die Verwendung eines sicheren Softwareschlüsselspeichers (Stufe 1), eines Hardware Trusted Platform Module (TPM) oder eines Hardware-Sicherheitsmoduls (Stufe 3) wird für die Speicherung von Passwörtern empfohlen.
+ |  | Bertriebssystemunterstützt | HSM | 798 | |
 
-## Additional US Agency Requirements
+## Zusätzliche Anforderungen der US-Behörden
 
-US Agencies have mandatory requirements concerning NIST 800-63. The Application Security Verification Standard has always been about the 80% of controls that apply to nearly 100% of apps, and not the last 20% of advanced controls or those that have limited applicability. As such, the ASVS is a strict subset of NIST 800-63, especially for IAL1/2 and AAL1/2 classifications, but is not sufficiently comprehensive, particularly concerning IAL3/AAL3 classifications.
+US-Behörden haben verbindliche Anforderungen bezüglich NIST 800-63. Der Standard für die Verifizierung der Anwendungssicherheit entsprach schon immer etwa 80% der Kontrollen, die für fast 100% der Anwendungen gelten, und nicht den letzten 20% der fortgeschrittenen Kontrollen oder solche, die nur begrenzt anwendbar sind. Der ASVS ist somit eine genaue Untermenge von NIST 800-63, insbesondere für die IAL1/2- und AAL1/2-Klassifizierungen, aber er ist nicht umfassend genug, insbesondere was die IAL3/AAL3-Klassifizierungen betrifft.
 
-We strongly urge US government agencies to review and implement NIST 800-63 in its entirety.
+Wir fordern die US-Regierungsbehörden nachdrücklich auf, NIST 800-63 in seiner Gesamtheit zu überprüfen und umzusetzen.
 
-## Glossary of terms
+## Glossar der Fachbegriffe
 
-| Term | Meaning |
+| Fachbegriff | Bedeutung |
 | -- | -- |
-| CSP | Credential Service Provider also called an Identity Provider |
-| Authenticator | Code that authenticates a password, token, MFA, federated assertion, and so on. |
-| Verifier | "An entity that verifies the claimant's identity by verifying the claimant's possession and control of one or two authenticators using an authentication protocol. To do this, the verifier may also need to validate credentials that link the authenticator(s) to the subscriber's identifier and check their status" |
+| CSP | _Credential Service Provider_ auch als Identity Provider bekannt  |
+| Authentifikatoren | Code, der ein Kennwort, ein Token, MFA, eine föderierte Behauptung, usw. authentifiziert. |
+| Verifier | Eine Einrichtung, die die Identität des Antragstellers durch die Überprüfung des Besitzes und der Kontrolle des Antragstellers über einen oder zwei Authentifizierer mittels eines Authentifizierungsprotokolls verifiziert. Zu diesem Zweck muss der Verifier möglicherweise auch die Anmeldedaten validieren, die den/die Authentifikator(en) mit der Kennung des Abonnenten verbinden und ihren Status überprüfen |
 | OTP | One-time password |
-| SFA | Single factor authenticators, such as something you know (memorized secrets, passwords, passphrases, PINs), something you are (biometrics, fingerprint, face scans), or something you have (OTP tokens, a cryptographic device such as a smart card),  |
-| MFA | Multi factor authenticator, which includes two or more single factors |
+| SFA | Single-Factor-Authentifikatoren, z.B. etwas, das Sie kennen (gespeicherte Geheimnisse, Passwörter, Passphrasen, PINs), etwas, das Sie sind (Biometrie, Fingerabdrücke, Gesichtsscans) oder etwas, das Sie haben (OTP-Token, ein kryptographisches Gerät wie eine Smartcard),  |
+| MFA | Multifaktor-Authentifikator, der zwei oder mehr Einzelfaktoren umfasst |
 
-## References
+## Verweise
 
-For more information, see also:
+Für weitere Informationen siehe auch:
 
 * [NIST 800-63 - Digital Identity Guidelines](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-63-3.pdf)
 * [NIST 800-63 A - Enrollment and Identity Proofing](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-63a.pdf)

@@ -150,7 +150,7 @@ Dies dient als Platzhalter für zukünftige Architekturanforderungen.
 | **1.14.6** | Vergewissern Sie sich, dass Anwendungsimplementierungen auf der Netzwerkebene angemessen sandboxed, containerisiert und/oder isoliert sind, um Angriffe zu verzögern und Angreifer davon abzuhalten, andere Anwendungen anzugreifen, insbesondere wenn sie sensible oder gefährliche Aktionen wie Deserialisierung durchführen. ([C5](https://www.owasp.org/index.php/OWASP_Proactive_Controls#tab=Formal_Numbering)) | | ✓ | ✓ | 265 |
 | **1.14.7** | Stellen Sie sicher, dass die Anwendung keine nicht mehr unterstützte, unsicheren oder veralteten clientseitigen Technologien wie NSAPI-Plugins, Flash, Shockwave, ActiveX, Silverlight, NACL oder clientseitige Java-Applets verwendet. | | ✓ | ✓ | 477 |
 
-## Referenzen
+## Verweise
 
 Für weitere Informationen siehe auch:
 
